@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Update Manager</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/admin_delete_manager.css">
+
+</head>
+
+<body>
+    <header>
+    <div class="back">
+        <!-- Back Button -->
+        <button  onclick="window.history.back()">Back</button>
+        </div>
+    <!-- Header placed at the top -->
+    <h4 class="heading">Update And Edit Manager Detail's</h4>
+</header>
+
+<main>
+    <!-- Form placed below the header -->
+     <div>
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <label for="manager_userid">Username</label>
+        <input type="text" name="manager_userid" id="manager_userid" value="{{manager_key.managerid}}" placeholder="Username" required>  
+
+        <label for="manager_fullname">Full Name</label>
+        <input type="text" name="manager_fullname" id="manager_fullname" value="{{manager_key.fullname}}" placeholder="Full Name" required> 
+        <label for="manager_deptname">Department</label>
+        <select name="manager_deptname" id="manager_deptname" required>
+            <option value="finance Department" {% if manager_key.deptname == 'finance Department' %} selected {% endif %}>Finance Department</option>
+            <option value="executive Department" {% if manager_key.deptname == 'executive Department' %} selected {% endif %}>Executive Department</option>
+            <option value="development Department"{% if manager_key.deptname == 'development Department' %} selected {% endif %}>Development Department</option>
+            <option value="sales Department" {% if manager_key.deptname == 'sales Department' %} selected {% endif %}>Sales Department</option>
+            <option value="marketing Department" {% if manager_key.deptname == 'marketing Department' %} selected {% endif %}>Marketing Department</option>
+        </select> 
+
+        <label for="manager_email">Email</label>
+        <input type="email" name="manager_email" id="manager_email" value="{{manager_key.email}}" placeholder="Email" required> 
+
+        <label for="manager_password">Password</label>
+        <input type="password" name="manager_password" id="manager_password" value="{{manager_key.password}}" placeholder="Password" required> 
+
+        <label for="manager_mobile">Mobile Number</label>
+        <input type="text" name="manager_mobile" id="manager_mobile" value="{{manager_key.mobile}}" placeholder="Mobile Number" required> 
+        <input type="text" size="30px" readonly value="{{manager_key.regdate}}"> 
+
+        <input type="submit" value="Update Manager">
+    </form>
+    
+</div>
+
+
+</main>
+</body>
+
+</html>
+

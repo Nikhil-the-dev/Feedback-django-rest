@@ -1,0 +1,112 @@
+/* General body and layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    color: #333;
+    flex-direction: column;
+}
+
+main {
+    margin-bottom: 8%;
+}
+
+header {
+    margin-top: 3%;
+}
+
+/* Back button styling */
+.back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back button {
+    font-size: 1.2em;
+    color: #4CAF50;
+    background-color: white;
+    border: 1px solid #4CAF50;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Form container */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    /* Ensures the form does not stretch too wide */
+    margin-top: 20px;
+    /* Adjust space between the content and form */
+    box-sizing: border-box;
+}
+
+/* Form input and select styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+c
+
+/* Message alert styling */
+.messages {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 450px;
+    /* Matches form width */
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 1.1em;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

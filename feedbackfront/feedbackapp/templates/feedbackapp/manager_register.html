@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Registration</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/manager_register.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/notification.css">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="back">
+            <!-- Back Button -->
+            <button onclick="window.history.back()">Back</button>
+        </div>
+        <!-- Header placed at the top -->
+        <h4 class="heading">Register as a Manager</h4>
+    </header>
+
+    <main>
+        <!-- Form placed below the header -->
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+
+                <label for="manager_userid">Username</label>
+                <input type="text" name="manager_userid" id="manager_userid" placeholder="Username" required>
+
+                <label for="manager_fullname">Full Name</label>
+                <input type="text" name="manager_fullname" id="manager_fullname" placeholder="Full Name" required>
+
+                <label for="manager_deptname">Department</label>
+                <select name="manager_deptname" id="manager_deptname" required>
+                    <option value="finance Department">Finance Department</option>
+                    <option value="executive Department">Executive Department</option>
+                    <option value="development Department">Development Department</option>
+                    <option value="sales Department">Sales Department</option>
+                    <option value="marketing Department">Marketing Department</option>
+                </select>
+
+                <label for="manager_email">Email</label>
+                <input type="email" name="manager_email" id="manager_email" placeholder="Email" required>
+
+                <label for="manager_password">Password</label>
+                <input type="password" name="manager_password" id="manager_password" placeholder="Password" required>
+
+                <label for="manager_mobile">Mobile Number</label>
+                <input type="text" name="manager_mobile" id="manager_mobile" placeholder="Mobile Number" required>
+
+                <input type="submit" value="Register">
+            </form>
+
+
+            <a href="manager_login">Have an account? Login Here</a>
+        </div>
+
+    </main>
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+    {% endif %}
+</body>
+
+</html>

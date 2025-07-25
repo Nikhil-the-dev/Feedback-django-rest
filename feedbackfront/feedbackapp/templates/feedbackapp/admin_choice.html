@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/admin_manager_customer_choice.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/notification.css">
+
+</head>
+
+<body>
+    <div class="logout">
+        <form action="/admin_logout" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </div>
+
+   <div></div> <h4>{{admin_username}}</h4> <br>  <br>
+    <a href="/admin_view_all_reply">View Replies</a>
+    <a href="/admin_view_all_records">View Feedback</a>
+    <a href="/admin_view_manager_detail">View Manager Details</a></div>
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+    {% endif %}
+</body>
+
+</html>

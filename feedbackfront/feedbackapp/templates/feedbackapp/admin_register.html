@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Register</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/admin_register.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/notification.css">
+
+
+</head>
+
+<body>
+    <div class="home">
+        <!-- Home Button as a Link -->
+        <a href="/">
+            <button>Home</button>
+        </a>
+    </div>
+
+    <h4>Register as a Admin</h4>
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="adminusername" placeholder="Username">
+            <input type="text" name="adminfullname" placeholder="Full Name">
+            <input type="email" name="adminemail" placeholder="Email">
+            <input type="password" name="adminpassword" placeholder="Password">
+            <input type="submit" value="Register">
+        </form>
+        <a href="admin_login">Have an account? Login Here</a>
+
+    </div>
+
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+    {% endif %}
+</body>
+
+</html>

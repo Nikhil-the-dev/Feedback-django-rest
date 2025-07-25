@@ -1,0 +1,125 @@
+/* Simple styling for the form */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    color: #333;
+    flex-direction: column;
+}
+/* Header styling */
+h4 {
+    text-align: center;
+    /* Centers the text */
+    color: #333;
+    font-size: 1.3em;
+    /* Makes the header larger */
+    margin-bottom: 15px;
+    /* Adds spacing between the header and the form */
+    margin-top: 30%;
+}
+
+/* Back button styling */
+.home {
+    position: absolute;
+    top: 3px;
+    left: 20px;
+}
+
+.home button {
+    font-size: 1.2em;
+    color: #4CAF50;
+    background-color: white;
+    border: 1px solid #4CAF50;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.messages {
+    margin-top: 20px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Header styling */
+h4 {
+    text-align: center;
+    /* Centers the text */
+    color: #333;
+    font-size: 1.6em;
+    /* Makes the header larger */
+    margin-bottom: 30px;
+    /* Adds spacing between the header and the form */
+    margin-top: 30px;
+}
+
+a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover {
+    text-decoration: underline;
+}

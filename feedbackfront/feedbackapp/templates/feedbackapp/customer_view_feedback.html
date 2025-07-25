@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer View Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/customer_view_feedback.css">
+
+</head>
+
+<body>
+    <!-- Logout Button -->
+    <div class="logout">
+        <form action="/customer_logout" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    </div>
+    <!-- Table Container with Search Box -->
+    <div class="table-container">
+        <!-- Sliding Search Box -->
+        <!-- Page Heading -->
+        <h4>Feedback's</h4>
+        <div id="searchBox">
+            <input type="text" class="search" id="search" onkeyup="text_search(this.value)"
+                placeholder="Search Feedback Here..." size="20px">
+        </div>
+        <!-- Search Icon -->
+        <i class="fas fa-search search-icon" onclick="toggleSearchBox()"></i>
+        <!-- Feedback Table -->
+        <table id="feedbackTable">
+            <thead>
+                <tr>
+                    <th>Customer Id</th>
+                    <th>Feedback Description</th>
+                    <th>Feedback Rating</th>
+                    <th>Feedback Date</th>
+                    <th colspan="2">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in cust_data %}
+                <tr class="feedback-row">
+                    <td>{{ d.customer_details.custid }}</td>
+                    <td>{{ d.feeddesc }}</td>
+                    <td>{{ d.feedrate }}</td>
+                    <td>{{ d.feeddate }}</td>
+                    <td><a href="/cust_edit_feedback?q={{ d.id }}">Edit</a></td>
+                    <td><a href="/cust_delete_feedback?q={{ d.id }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="6" style="text-align:center;">
+                        <a href="/customer_submit_feedback">Submit Feedback</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+
+    {% endif %}
+
+    <script src="./static/feedbackapp/javascript/serchbox.js"></script>
+
+</body>
+
+</html>

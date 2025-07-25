@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/admin_register.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/notification.css">
+</head>
+<body>
+    <div class="home">
+        <!-- Home Button as a Link -->
+        <a href="/">
+            <button>Home</button>
+        </a>
+    </div>
+    <h4>Login as a Admin</h4>
+    <div class="form">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="email" name="adminemail" placeholder="Email"> 
+        <input type="password" name="adminpassword" placeholder="Password"> 
+        <input type="submit" value="Login">
+    </form> 
+    <a href="/admin_register">Don't Have account? Create Here</a>
+
+</div>
+    
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+    {% endif %}
+</body>
+</html>

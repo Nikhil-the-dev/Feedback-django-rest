@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Submit Feedback</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/cust_edit&delete_feedback.css">
+    
+</head>
+
+<body>
+    <div class="back">
+        <!-- Back Button -->
+        <button onclick="window.history.back()">Back</button>
+    </div>
+    <!-- Logout Button -->
+    <div class="logout">
+        <form action="/customer_logout" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h4>{{cust_user}}</h4>
+        <h4>Submit Your Feedback</h4>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="custusername">Customer Username -</label>
+            <input id="custusername" type="text" readonly value="{{cust_user}}" required>
+            <!-- Feedback description input (textarea) -->
+            <label for="feeddesc">Feedback Description -</label>
+            <textarea id="feeddesc" name="feeddesc" placeholder="Enter your feedback here..." required></textarea>
+
+            <!-- Feedback Rating -->
+            <label for="feedrate">Feedback Rating -</label>
+            <div class="range-container">
+                <input type="range" id="feedrate" name="feedrate" min="1" max="5" value="3"
+                    oninput="updateRangeValue(this.value)">
+                <span id="feedrate-value">3</span>
+            </div> <br>
+
+            <input type="submit" id="button" value="Submit Feedback">
+        </form>
+    </div>
+    <script>
+        // Function to update the displayed range value dynamically
+        function updateRangeValue(value) {
+            document.getElementById("feedrate-value").textContent = value;
+            var slider = document.getElementById("feedrate");
+            var rangeWidth = slider.offsetWidth;
+            var thumbWidth = 20; // The width of the thumb
+            var position = (value - 1) / (slider.max - slider.min) * (rangeWidth - thumbWidth);
+            document.getElementById("feedrate-value").style.left = `calc(${position}px + ${thumbWidth / 2}px)`;
+        }
+
+        // Initialize the range display position when the page loads
+        window.onload = function () {
+            updateRangeValue(document.getElementById("feedrate").value);
+        };
+    </script>
+</body>
+
+</html>

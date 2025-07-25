@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Reply Feedback</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/cust_edit&delete_feedback.css">
+</head>
+<body>
+    
+<div class="form-container">
+    <h4>Reply Feedback</h4>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="custusername">Customer Username -</label>
+        <input id="custusername" type="text" readonly value="{{cust_userid.custid}}" required>
+
+        <!-- Feedback description input (textarea) -->
+        <label for="feeddesc">Feedback Description -</label>
+        <textarea id="feeddesc" readonly placeholder="Enter your feedback here..." required>{{feedback_data.feeddesc}}</textarea>
+
+        <label for="feedreply">Feedback Reply -</label>
+        <textarea id="feedreply" name="feedreply" placeholder="Reply feedback here..." required></textarea>
+
+        <input type="submit" id="button" value="Reply Feedback">
+    </form>
+</div>
+
+</body>
+</html>

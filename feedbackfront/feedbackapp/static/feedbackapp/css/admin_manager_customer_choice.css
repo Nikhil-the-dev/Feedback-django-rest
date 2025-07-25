@@ -1,0 +1,76 @@
+/* General body and font setup */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    flex-direction: column;
+    position: relative;
+    /* Ensure positioning context for the logout link */
+}
+
+/* Logout button styling */
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout button {
+    font-size: 1.2em;
+    color: #4CAF50;
+    background-color: white;
+    border: 1px solid #4CAF50;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Heading and content styling */
+h4 {
+    text-align: center;
+    color: #444;
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+/* Link Styling */
+a {
+    display: block;
+    text-align: center;
+    margin: 10px;
+    font-size: 1.2em;
+    color: #4CAF50;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    h4 {
+        font-size: 1.5em;
+    }
+
+    a {
+        font-size: 1em;
+    }
+}

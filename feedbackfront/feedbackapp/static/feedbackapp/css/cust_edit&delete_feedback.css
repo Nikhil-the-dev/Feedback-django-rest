@@ -1,0 +1,232 @@
+
+        /* General body and font setup */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            flex-direction: column;
+        }
+
+        /* Back button styling */
+        .back {
+            position: absolute;
+            top: 3px;
+            left: 20px;
+        }
+
+        .back button {
+            font-size: 1.2em;
+            color: #4CAF50;
+            background-color: white;
+            border: 1px solid #4CAF50;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Logout button styling */
+        .logout {
+            position: absolute;
+            top: 3px;
+            right: 20px;
+        }
+
+        .logout button {
+            font-size: 1.2em;
+            color: #4CAF50;
+            background-color: white;
+            border: 1px solid #4CAF50;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .logout button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+
+        /* Form container styling */
+        .form-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-top: 80px;
+            /* Add margin to prevent overlap with logout */
+        }
+
+        /* Centering h4 elements */
+        h4 {
+            letter-spacing: 1px;
+            text-align: center;
+            color: #444;
+            margin: 1px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        /* Form labels and inputs */
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Range slider styling */
+        .range-container {
+            position: relative;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            transition: background 0.3s ease;
+        }
+
+        input[type="range"]:focus {
+            background: #b3d4fc;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        /* Dynamic feedback value display */
+        #feedrate-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4CAF50;
+            background-color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button styling */
+        #button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Message styling */
+        .messages {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            color: #fff;
+        }
+
+        .alert-success {
+            background-color: #4CAF50;
+        }
+
+        .alert-info {
+            background-color: #5bc0de;
+        }
+
+        .alert-warning {
+            background-color: #f0ad4e;
+        }
+
+        .alert-danger {
+            background-color: #d9534f;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            h4 {
+                font-size: 1.5em;
+            }
+
+            input[type="text"],
+            textarea {
+                padding: 10px;
+            }
+
+            #button {
+                padding: 12px;
+            }
+        }

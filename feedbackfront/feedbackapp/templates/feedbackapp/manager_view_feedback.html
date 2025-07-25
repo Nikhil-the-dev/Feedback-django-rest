@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager View Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/customer_view_feedback.css">
+</head>
+
+<body>
+
+    <!-- Logout Form positioned to the top-right -->
+    <div class="logout">
+        <form action="/manager_logout" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </div>
+    <!-- Table Container with Search Box -->
+    <div class="table-container">
+        <!-- Sliding Search Box -->
+        <!-- Page Heading -->
+        <h4>Customer Feedbacks Data!</h4>
+        <div id="searchBox">
+            <input type="text" class="search" id="search" onkeyup="text_search(this.value)"
+                placeholder="Search Feedback Here..." size="20px">
+        </div>
+        <!-- Search Icon -->
+        <i class="fas fa-search search-icon" onclick="toggleSearchBox()"></i>
+        <!-- Feedback Table -->
+        <table id="feedbackTable">
+            <thead>
+                <tr>
+                    <th>Feedback Id</th>
+                    <th>Customer UserId</th>
+                    <th>Feedback Description</th>
+                    <th>Feedback Rating</th>
+                    <th>Feedback Date</th>
+                    <th>Reply</th> <!-- Changed column name -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in manager_view_feedback %}
+                <tr class="feedback-row">
+                    <td>{{ d.id }}</td>
+                    <td>{{ d.customer_details.custid }}</td>
+                    <td>{{ d.feeddesc }}</td>
+                    <td>{{ d.feedrate }}</td>
+                    <td>{{ d.feeddate }}</td>
+                    <td colspan="6" style="text-align:center;">
+                        {% if d.reply %}
+                        <!-- If a reply exists, show the reply message -->
+                        <p>{{ d.reply.replymessage }}</p>
+                        {% else %}
+                        <!-- If no reply exists, show the 'Reply' link -->
+                        <a href="/manager_reply_feedback?q={{ d.id }}">Reply</a>
+                        {% endif %}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+
+    {% endif %}
+
+    <script src="./static/feedbackapp/javascript/searchbox.js"></script>
+
+</body>
+
+</html>

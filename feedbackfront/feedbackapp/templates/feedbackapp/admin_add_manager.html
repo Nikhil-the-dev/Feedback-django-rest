@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Add Manager Page</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/admin_add_manager.css">
+</head>
+
+<body>
+    <header>
+        <div class="back">
+            <!-- Back Button -->
+            <button onclick="window.history.back()">Back</button>
+        </div>
+
+        <!-- Header placed at the top -->
+        <h4>Add Manager</h4>
+    </header>
+    <main>
+    <!-- Form placed below the header -->
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="manager_userid">Username</label>
+        <input type="text" name="manager_userid" id="manager_userid" placeholder="Username" required> 
+
+        <label for="manager_fullname">Full Name</label>
+        <input type="text" name="manager_fullname" id="manager_fullname" placeholder="Full Name" required>
+
+        <label for="manager_deptname">Department</label>
+        <select name="manager_deptname" id="manager_deptname" required>
+            <option value="finance Department">Finance Department</option>
+            <option value="executive Department">Executive Department</option>
+            <option value="development Department">Development Department</option>
+            <option value="sales Department">Sales Department</option>
+            <option value="marketing Department">Marketing Department</option>
+        </select> 
+
+        <label for="manager_email">Email</label>
+        <input type="email" name="manager_email" id="manager_email" placeholder="Email" required> 
+
+        <label for="manager_password">Password</label>
+        <input type="password" name="manager_password" id="manager_password" placeholder="Password" required> 
+
+        <label for="manager_mobile">Mobile Number</label>
+        <input type="text" name="manager_mobile" id="manager_mobile" placeholder="Mobile Number" required> 
+
+        <input type="submit" value="Add Manager">
+    </form>
+
+    <!-- If there are any messages, display them here -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- If a redirect URL is passed (successful submission), trigger the redirect after 2 seconds -->
+    {% if redirect_url %}
+    <script type="text/javascript">
+        setTimeout(function () {
+            window.location.href = "{{ redirect_url }}";  // Redirect to the provided URL after 2 seconds
+        }, 2000);  // 2000ms = 2 seconds
+    </script>
+    {% endif %}
+</main>
+</body>
+
+</html>

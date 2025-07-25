@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Home</title>
+    <link rel="stylesheet" href="./static/feedbackapp/css/admin_manager_customer_choice.css">
+    <link rel="stylesheet" href="./static/feedbackapp/css/notification.css">
+
+</head>
+
+<body>
+    <div class="logout">
+        <form action="/customer_logout" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </div>
+    <div>
+        <h4>{{cust_user}}</h4> <br> <br>
+        <a href="/customer_submit_feedback">Give Feedback</a>
+        <a href="/customer_view_feedback">View Feedback</a>
+        <a href="/customer_view_feedback_reply">View Replies</a>
+    </div>
+    {% if messages %}
+    <div class="notification" id="message-box">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <script src="./static/feedbackapp/javascript/notification.js"></script>
+    {% endif %}
+</body>
+
+</html>
